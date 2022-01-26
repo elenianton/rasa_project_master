@@ -1,0 +1,57 @@
+version: "3.0"
+
+stories:
+  - story: stop form + continue
+    steps:
+      - intent: request_restaurant
+      - action: restaurant_form
+      - active_loop: restaurant_form
+      - intent: stop
+      - action: utter_ask_continue
+      - intent: affirm
+      - action: restaurant_form
+      - active_loop: null
+      - action: utter_submit
+      - action: utter_slots_values
+      - intent: affirm
+      - action: utter_first_reaction
+      - action: action_get_restaurants
+
+  - story: stop form + continue + deny
+    steps:
+      - intent: request_restaurant
+      - action: restaurant_form
+      - active_loop: restaurant_form
+      - intent: stop
+      - action: utter_ask_continue
+      - intent: affirm
+      - action: restaurant_form
+      - active_loop: null
+      - action: utter_submit
+      - action: utter_slots_values
+      - intent: deny
+
+  - story: confirm restaurant
+    steps:
+      - action: action_get_restaurants
+      - intent: affirm
+      - action: utter_confirm
+      
+  - story: deny restaurants
+    steps:
+      - action: action_get_restaurants
+      - intent: deny
+      - action: utter_second_reaction
+      - action: action_get_restaurants
+  
+  - story: stop form + stop
+    steps:
+      - intent: request_restaurant
+      - action: restaurant_form
+      - active_loop: restaurant_form
+      - intent: stop
+      - action: utter_ask_continue
+      - intent: deny
+      - action: action_deactivate_loop
+      - active_loop: null
+    

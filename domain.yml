@@ -1,0 +1,157 @@
+version: "3.0"
+
+intents:
+  - request_restaurant:
+      use_entities: []
+  - chitchat:
+      use_entities: []
+  - inform
+  - affirm
+  - deny
+  - stop
+  - thankyou
+  - greet
+  - restaurants_wait
+  - request_infos
+
+entities:
+  - cuisine
+  - loc
+  - feedback
+  - seating
+
+slots:
+  cuisine:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: cuisine
+  location:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: loc
+      conditions:
+      - active_loop: restaurant_form
+        requested_slot: location
+  outdoor_seating:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: seating
+    - type: from_intent
+      intent: affirm
+      value: true
+      conditions:
+      - active_loop: restaurant_form
+        requested_slot: outdoor_seating
+    - type: from_intent
+      intent: deny
+      value: false
+      conditions:
+      - active_loop: restaurant_form
+        requested_slot: outdoor_seating
+  preferences:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_intent
+      intent: deny
+      value: no additional preferences
+      conditions:
+      - active_loop: restaurant_form
+        requested_slot: preferences
+    - type: from_text
+      not_intent: deny
+      conditions:
+      - active_loop: restaurant_form
+        requested_slot: preferences
+  feedback:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: feedback
+    - type: from_text
+      conditions:
+      - active_loop: restaurant_form
+        requested_slot: feedback
+
+responses:
+  utter_ask_cuisine:
+    - text: "What cuisine do you prefer?"
+  utter_ask_location:
+    - text: "Do you prefer {cuisine} restaurant at \n
+        - East Attica \n
+        - West Attica \n
+        - Central Attica \n
+        - North Attica \n
+        - South Attica"
+  utter_ask_outdoor_seating:
+    - text: "Do you want to sit inside? Only vaccination certificate is allowed"
+  utter_ask_preferences:
+    - text: "Do you have any food or drink allergy? Chef should be informed about it immediately"
+  utter_ask_feedback:
+    - text: "Please give your feedback on your experience so far. Is everything ok?"
+  utter_submit:
+    - text: "Superb choice"
+  utter_ask_infos:
+    - text: "Do you want to learn some information about {cuisine} food?"
+  utter_slots_values:
+    - text: "Let me find a wonderful place with {cuisine} food at {location}.\n
+           Are you ok with that? "
+  utter_noworries:
+    - text: "You are welcome my friend"
+  utter_ask_continue:
+    - text: "Do you want to continue?"
+  utter_wrong_cuisine:
+    - text: "I cant recognize this type of cuisine, please try again"
+  utter_wrong_location:
+    - text: "I cant recognize this type of location, please try again"
+  utter_wrong_outdoor_seating:
+    - text: "Please try again"
+  utter_default:
+    - text: "Sorry, I didn't understand you, please try input something else"
+  utter_greet:
+    - text: "Hello my friend! My name is HungryBot. I love searching for restaurants in Athens.\n
+            You look really hungry\n
+            How can i help you?"
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+  utter_restart:
+    - text: "restarted"
+  utter_test:
+    - text: 'test'
+  utter_confirm:
+    - text: "Perfect! Im going to book a table for you."
+  utter_first_reaction:
+    - text: "Hmm let me think about it..."
+  utter_second_reaction:
+    - text: "You look really mistrustful. Are you sure about {cuisine} food?"
+  utter_again:
+    - text: "Sorry, I made a mistake. Type 'restaurant' in order to express your preferences again"
+  
+
+
+actions:
+- validate_restaurant_form
+- action_get_restaurants
+- action_get_informations
+
+forms:
+  restaurant_form:
+    ignored_intents:
+    - chitchat
+    required_slots:
+      - cuisine
+      - location
+      - outdoor_seating
+      - preferences
+      - feedback
+
+session_config:
+  session_expiration_time: 60  # value in minutes
+  carry_over_slots_to_new_session: true
