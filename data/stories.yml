@@ -17,6 +17,8 @@ stories:
       - action: utter_first_reaction
       - action: action_get_restaurants
 
+
+
   - story: stop form + continue + deny
     steps:
       - intent: request_restaurant
@@ -41,7 +43,6 @@ stories:
     steps:
       - action: action_get_restaurants
       - intent: deny
-      - action: utter_second_reaction
       - action: action_get_restaurants
   
   - story: stop form + stop

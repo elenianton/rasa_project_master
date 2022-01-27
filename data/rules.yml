@@ -24,11 +24,25 @@ rules:
       - active_loop: null
       - action: utter_submit
       - action: utter_slots_values
-      - intent: affirm
+      - intent: affirm      
+      - action: utter_first_reaction
       - action: action_get_restaurants
 
+  - rule: repeat suggestions
+    steps:
+      - action: action_get_restaurants
+      - intent: deny
+      - action: action_get_restaurants
 
+  - rule: request infos
+    steps:
+      - intent: request_infos
+      - action: action_get_informations
 
+  - rule: bye
+    steps:
+      - intent: bye
+      - action: utter_goodbye
 
 
 

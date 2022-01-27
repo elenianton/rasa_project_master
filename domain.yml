@@ -13,6 +13,7 @@ intents:
   - greet
   - restaurants_wait
   - request_infos
+  - bye
 
 entities:
   - cuisine
@@ -133,7 +134,8 @@ responses:
     - text: "You look really mistrustful. Are you sure about {cuisine} food?"
   utter_again:
     - text: "Sorry, I made a mistake. Type 'restaurant' in order to express your preferences again"
-  
+  utter_goodbye:
+    - text: "Goodbye! Bon Appétit"
 
 
 actions:

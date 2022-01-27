@@ -49,7 +49,7 @@ nlu:
     - restaurant at [West Attica](loc)
     - restaurant, now
     - Restaurant
-	  - Restaurant with [french/international](cuisine) food
+    - Restaurant with [french/international](cuisine) food
     - Bar/ Restaurant
     - Im want to dinner out with my friends
     - Im looking for a restaurant for a date
@@ -99,6 +99,7 @@ nlu:
   examples: |
     - no
     - n
+    - nope	
     - no new selection
     - no thanks
     - no thank you
@@ -226,3 +227,12 @@ nlu:
     - Tell me more
     - tell me more about it
     - i want to learn more about this type of food
+- intent: bye
+  examples: |
+    - bye
+    - bb
+    - antios
+    - goodbye
+    - goodnight
+    - good evening
+
