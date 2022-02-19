@@ -158,7 +158,7 @@ class Actionsgetrestaurants(Action):
                 response= """What about {0} at {1}?""".format(restaurant, loc)
                 dispatcher.utter_message(response)
             elif cuisine == 'french/international' and location == 'East Attica':
-                url_res= "https://www.e-table.gr/en/restaurants/attiki.anatolikiattiki/diethnis"
+                url_res= "https://www.e-table.gr/en/restaurants/attiki.anatolikiattiki+attiki.athina/diethnis"
                 restaurant, loc= scraping_restaurants(url_res)
                 response= """What about {0} at {1}?""".format(restaurant, loc)
                 dispatcher.utter_message(response)
@@ -193,7 +193,7 @@ class Actionsgetrestaurants(Action):
                 response= """What about {0} at {1}?""".format(restaurant, loc)
                 dispatcher.utter_message(response)
             elif cuisine == 'indian' and location == 'South Attica':
-                url_res= "https://www.e-table.gr/en/restaurants/attiki.kentrikanotiaproastia/indiki"
+                url_res= "https://www.e-table.gr/en/restaurants/attiki.athina+attiki.kentrikanotiaproastia/indiki"
                 restaurant, loc= scraping_restaurants(url_res)
                 response= """What about {0} at {1}?""".format(restaurant, loc)
                 dispatcher.utter_message(response)
@@ -238,7 +238,7 @@ class Actionsgetrestaurants(Action):
                 response= """What about {0} at {1}?""".format(restaurant, loc)
                 dispatcher.utter_message(response)
             elif cuisine == 'mexican' and location == 'South Attica':
-                url_res= "https://www.e-table.gr/en/restaurants/attiki.kentrikanotiaproastia/mexikaniki"
+                url_res= "https://www.e-table.gr/en/restaurants/attiki.athina+attiki.kentrikanotiaproastia/mexikaniki"
                 restaurant, loc= scraping_restaurants(url_res)
                 response= """What about {0} at {1}?""".format(restaurant, loc)
                 dispatcher.utter_message(response)
@@ -248,7 +248,7 @@ class Actionsgetrestaurants(Action):
                 response= """What about {0} at {1}?""".format(restaurant, loc)
                 dispatcher.utter_message(response)
             elif cuisine == 'mediterranean' and location == 'West Attica':
-                url_res= "https://www.e-table.gr/en/restaurants/attiki.dytikaproastia+attiki.dytikiattiki/mesogeiaki"
+                url_res= "https://www.e-table.gr/en/restaurants/attiki.dytikaproastia+attiki.dytikiattiki+attiki.peiraiasperichora/mesogeiaki"
                 restaurant, loc= scraping_restaurants(url_res)
                 response= """What about {0} at {1}?""".format(restaurant, loc)
                 dispatcher.utter_message(response)
@@ -273,10 +273,10 @@ class Actionsgetrestaurants(Action):
             
             
             
-class ActionGetInformations(Action):
+class ActionGetInformation(Action):
     """Example of a form validation action."""
     def name(self):
-        return 'action_get_informations'
+        return 'action_get_information'
         
     def run(self, dispatcher: CollectingDispatcher, 
             tracker: Tracker, 
@@ -296,22 +296,22 @@ class ActionGetInformations(Action):
             Chinese= ' '.join(infos[6])
 
             if cuisine == 'greek':
-                response= """Im gonna give you some really intresting informations about {}""".format(Greek)
+                response= """Im gonna give you some really interesting information about {}""".format(Greek)
                 dispatcher.utter_message(response)
             elif cuisine == 'chinese':
-                response= """Im gonna give you some really intresting informations about {}""".format(Chinese)
+                response= """Im gonna give you some really interesting information about {}""".format(Chinese)
                 dispatcher.utter_message(response)
             elif cuisine == 'french/international':
-                response= """Im gonna give you some really intresting informations about {}""".format(French)
+                response= """Im gonna give you some really interesting information about {}""".format(French)
                 dispatcher.utter_message(response)
             elif cuisine == 'italian':
-                response= """Im gonna give you some really intresting informations about {}""".format(Italian)
+                response= """Im gonna give you some really interesting information about {}""".format(Italian)
                 dispatcher.utter_message(response)
             elif cuisine == 'indian':
-                response= """Im gonna give you some really intresting informations about {}""".format(Indian)
+                response= """Im gonna give you some really interesting information about {}""".format(Indian)
                 dispatcher.utter_message(response)
             elif cuisine == 'mexican':
-                response= """Im gonna give you some really intresting informations about {}""".format(Mexican)
+                response= """Im gonna give you some really interesting information about {}""".format(Mexican)
                 dispatcher.utter_message(response)
             elif cuisine == 'mediterranean':
                 response= """Im sorry but I have no idea about this type of cuisine. The only thing I know is that\n

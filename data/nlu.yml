@@ -219,7 +219,7 @@ nlu:
 - intent: request_infos
   examples: |
     - infos
-    - informations
+    - information
     - could you tell me about this type of cuisine
     - info
     - information

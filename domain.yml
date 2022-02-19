@@ -34,9 +34,6 @@ slots:
     mappings:
     - type: from_entity
       entity: loc
-      conditions:
-      - active_loop: restaurant_form
-        requested_slot: location
   outdoor_seating:
     type: text
     influence_conversation: false
@@ -85,12 +82,7 @@ responses:
   utter_ask_cuisine:
     - text: "What cuisine do you prefer?"
   utter_ask_location:
-    - text: "Do you prefer {cuisine} restaurant at \n
-        - East Attica \n
-        - West Attica \n
-        - Central Attica \n
-        - North Attica \n
-        - South Attica"
+    - text: "Could you tell me which area do you prefer for {cuisine} food?"
   utter_ask_outdoor_seating:
     - text: "Do you want to sit inside? Only vaccination certificate is allowed"
   utter_ask_preferences:
@@ -98,12 +90,11 @@ responses:
   utter_ask_feedback:
     - text: "Please give your feedback on your experience so far. Is everything ok?"
   utter_submit:
-    - text: "Superb choice"
+    - text: "Perfect! I have all preferences needded"
   utter_ask_infos:
     - text: "Do you want to learn some information about {cuisine} food?"
   utter_slots_values:
-    - text: "Let me find a wonderful place with {cuisine} food at {location}.\n
-           Are you ok with that? "
+    - text: "Let me find a wonderful place with {cuisine} food at {location}.Are you ok with that? "
   utter_noworries:
     - text: "You are welcome my friend"
   utter_ask_continue:
@@ -117,23 +108,18 @@ responses:
   utter_default:
     - text: "Sorry, I didn't understand you, please try input something else"
   utter_greet:
-    - text: "Hello my friend! My name is HungryBot. I love searching for restaurants in Athens.\n
-            You look really hungry\n
-            How can i help you?"
+    - text: "Hello my friend! My name is HungryBot. I love searching restaurants in Athens.\n
+             How can i help you?"
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
   utter_restart:
     - text: "restarted"
-  utter_test:
-    - text: 'test'
   utter_confirm:
     - text: "Perfect! Im going to book a table for you."
   utter_first_reaction:
     - text: "Hmm let me think about it..."
   utter_second_reaction:
     - text: "You look really mistrustful. Are you sure about {cuisine} food?"
-  utter_again:
-    - text: "Sorry, I made a mistake. Type 'restaurant' in order to express your preferences again"
   utter_goodbye:
     - text: "Goodbye! Bon Appétit"
 
@@ -141,7 +127,7 @@ responses:
 actions:
 - validate_restaurant_form
 - action_get_restaurants
-- action_get_informations
+- action_get_information
 
 forms:
   restaurant_form:

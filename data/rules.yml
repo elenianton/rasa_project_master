@@ -37,7 +37,7 @@ rules:
   - rule: request infos
     steps:
       - intent: request_infos
-      - action: action_get_informations
+      - action: action_get_information
 
   - rule: bye
     steps:

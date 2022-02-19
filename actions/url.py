@@ -56,17 +56,17 @@ def scraping_restaurants(url):
 
 URL_inf= 'https://food.allwomenstalk.com/cuisines-of-the-world/#1'
 
-def scraping_informations(url):
+def scraping_information(url):
         r= requests.get(url)
         #print(r)
         soup = BeautifulSoup(r.content, "html.parser")
         #print(soup.prettify())
         scraped_rest= soup.find_all('div', class_= 'post p-4 overflow-hidden')
-        informations=[]
+        information=[]
         infos=[]
         for i in scraped_rest:
-            informations.append(i.get_text())
-        for i in informations:
+            information.append(i.get_text())
+        for i in information:
             infos.append([i])
         
         dataframe= pd.DataFrame(infos)

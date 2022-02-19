@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-cuisine",
+      "2": "I-cuisine",
+      "3": "L-cuisine",
+      "4": "U-cuisine",
+      "5": "B-feedback",
+      "6": "I-feedback",
+      "7": "L-feedback",
+      "8": "U-feedback",
+      "9": "B-loc",
+      "10": "I-loc",
+      "11": "L-loc",
+      "12": "U-loc",
+      "13": "B-location",
+      "14": "I-location",
+      "15": "L-location",
+      "16": "U-location",
+      "17": "B-seating",
+      "18": "I-seating",
+      "19": "L-seating",
+      "20": "U-seating",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-cuisine": 1,
+      "I-cuisine": 2,
+      "L-cuisine": 3,
+      "U-cuisine": 4,
+      "B-feedback": 5,
+      "I-feedback": 6,
+      "L-feedback": 7,
+      "U-feedback": 8,
+      "B-loc": 9,
+      "I-loc": 10,
+      "L-loc": 11,
+      "U-loc": 12,
+      "B-location": 13,
+      "I-location": 14,
+      "L-location": 15,
+      "U-location": 16,
+      "B-seating": 17,
+      "I-seating": 18,
+      "L-seating": 19,
+      "U-seating": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]
